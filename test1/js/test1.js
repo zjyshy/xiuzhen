@@ -2,7 +2,7 @@ var color = ['BB3844','B34FE8','FD3B83','37D23F','2ADBBE','4C0ACD','3AC434','D12
 var grid = document.getElementsByTagName('div');
 var btn = document.getElementsByTagName('button');
 var timer = null;
-window.onload = main;
+
 function main() {
 	btn[0].onclick = function(){
 
@@ -66,3 +66,5 @@ function $change(argument) {
 		}
 }
 }
+
+window.onload = main;
