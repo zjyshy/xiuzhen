@@ -52,14 +52,14 @@ section>img{
 	position:relative; 
 	top: 50%;
 	min-width: 380px;
-	max-width: 450px;
+	max-wid th: 450px;
         transform: translateY(-50%);
 
 }
 button{
 	display: block;
 	width: 85%;
-	font-size: 3em;
+	font-size: 2em;
 	margin: 0 auto;
 	margin-top: 1%;
 	height:7%;
