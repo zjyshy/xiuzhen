@@ -43,9 +43,10 @@ function a(){
 }
 
 function people(){
+
 	var $input = document.getElementsByTagName("input")[0];
 	var $value = Number($input.value);
-		if ($value<4 ) {
+		if ($value < 4) {
 			confirm('人太少了怎么玩');
 
 		
@@ -53,11 +54,19 @@ function people(){
 	}
 		else if ( $value>18) {
 
-	confirm('这么多人可挤不下');
+		confirm('这么多人可挤不下');
 
 	}
 	else if ($value>3&&$value<19) {
-		window.location='test2-4.html'
-	}
+		var killer = document.getElementsByClassName("kill")[0];
+		var human = document.getElementsByClassName("human")[0];
+		var ki = killer.childNodes[0]; 
+		var hu =human.childNodes[0];
+	
+		sessionStorage.setItem("killer",ki.nodeValue);
+		sessionStorage.setItem("human",hu.nodeValue);
+		window.location='test2-4.html';
+
+	 }
 }
 window.oninput = a; 

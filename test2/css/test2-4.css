@@ -2,6 +2,7 @@ html,body{
 	height: 100%;
 	margin:0;
 	padding: 0; 
+	background-color:#29BDE0; 
 }
 header{
 
@@ -11,13 +12,14 @@ header{
 	display: flex;
 	justify-content: space-between;
 	color: #fff;
+	border-bottom: 1px solid #FFF;
 
 }
 header img{
 	margin-top: .5em;
 	margin-left: 10px;
 	margin-right: 10px; 	
-	height: 80%;
+	height: 70%;
 }
 
 main{
@@ -27,6 +29,7 @@ main{
 section{
 	width: 80%;
 	margin:0 auto;
+
 	height:75%;
 	background-color:#FFEDC5; 
 	border: 3px solid #fff;
@@ -34,7 +37,7 @@ section{
 	position: relative;
 }
 
-div{
+.radius{
 	height: 2em;
 	width: 2em;
 	padding:.3em 0 0 .6em;
@@ -48,11 +51,12 @@ div{
 section>img{
 	display: block;
 	margin: 0 auto;
-	width: 50%;
+	width: 100%;
 	position:relative; 
 	top: 50%;
-	min-width: 380px;
-	max-wid th: 450px;
+
+	max-width: 270px;
+	
         transform: translateY(-50%);
 
 }
@@ -62,9 +66,32 @@ button{
 	font-size: 2em;
 	margin: 0 auto;
 	margin-top: 1%;
-	height:7%;
+	height:10%;
+	min-height: 50px;
 	outline: none;
 	border:none;
 	background-color: #FBB435;
 	color: #fff;
+}
+
+
+ .sf{
+	margin-top: 5%;
+	padding: 0 auto;
+	display: none;
+	 
+}
+
+.bor{
+	width: 220px;
+	margin: 0 auto;
+	background-color: #F8BD3B;
+	border-radius: 50%;
+
+}
+
+.occ{
+	text-align: center;
+	font-size: 2em;
+	color:#29BDE0; 
 }
