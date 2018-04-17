@@ -29,6 +29,8 @@ div{
 	height: 150px;
 	border:1px solid #fff;
 	background-color: #F4D085;
+	margin: 50px;
+
 	
 }
 div>p{
@@ -54,4 +56,36 @@ div>p{
 	background-color: #92B7A5;
 	color:#fff;
 	
+}
+main{
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+
+}
+
+@media (max-width: 800px){
+
+	div{
+
+		width: 100px;
+		height: 100px;
+		margin: 20px;
+	}
+}
+@media (max-width: 440px){
+
+	div{
+		width: 70px;
+		height: 70px;
+		margin: 20px;
+	}
+	.occ{
+		font-size: 1em;
+	}
+	.num{
+		font-size: .6em;
+	}
 }
