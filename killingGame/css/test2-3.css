@@ -73,11 +73,12 @@ input:focus{
 	width: 95%;
 	font-size: 5em;
 	margin: 0 auto;
-	margin-top: 1%
+	margin-top: 1%;
 	height:6%;
 	outline: none;
 	border:none;
 	background-color: #FBB435;
 	color: #fff;
+	cursor: pointer;
 
 }

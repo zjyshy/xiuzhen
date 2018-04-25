@@ -67,7 +67,7 @@ main>p{
 .first p{
 	background-color: #29BDE0;
 	width: 70%;
-	
+	cursor: pointer;
 	box-sizing: border-box;
 	padding: 3% 5% 3% 5%;
 	margin: 0 auto;
@@ -91,6 +91,7 @@ main>p{
 	background-color: #FAB339;
 	border-radius: 50%;
 	text-align: center;
+	 
 	
 }
 

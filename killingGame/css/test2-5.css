@@ -4,6 +4,7 @@ html,body{
 	margin:0;
 	padding: 0; 
 	background-color:#29BDE0; 
+	min-width: 300px;
 }
 header{
 
@@ -63,6 +64,26 @@ main{
 	flex-wrap: wrap;
 	justify-content: space-between;
 
+
+}
+button{
+	display: block;
+	width: 85%;
+	font-size: 2em;
+	
+	margin-top: 1%;
+	height:10%;
+	min-height: 50px;
+	outline: none;
+	border:none;
+	background-color: #FBB435;
+	color: #fff;
+	cursor: pointer;
+	position: absolute;
+	bottom: 2%;
+	left: 50%;
+	
+	margin-left: -42.5%;
 
 }
 

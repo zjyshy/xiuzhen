@@ -1,6 +1,9 @@
 var arr = sessionStorage.getItem("ranArr").split(',');
 var hu = sessionStorage.getItem('human');
 var ma = document.getElementsByTagName('main');
+var btn=document.createElement("button");
+var text = document.createTextNode("开始游戏");
+var body = document.getElementsByTagName('body');
 
 function addLoadEvent(func){
 
@@ -33,7 +36,11 @@ function createBlock(quan) {
        
        j++;
     }
+   
     ma[0].innerHTML = inne;
+    btn.appendChild(text);
+    body[0].appendChild(btn);
+    
 }
 
 function main() {
@@ -41,7 +48,11 @@ function main() {
     
    createBlock(arr);
     
-   
+   console.log(arr);
+    btn.onclick = function () {
+        window.location='法官台本.html'
+
+    }
 
 
 }
