@@ -1,1 +1,1 @@
-window.setTimeout("window.location='test2-2.html'",2000); 
+window.setTimeout("window.location='selectGameMode.html'",2000); 

@@ -65,7 +65,7 @@ function people(){
 	
 		sessionStorage.setItem("killer",ki.nodeValue);
 		sessionStorage.setItem("human",hu.nodeValue);
-		window.location='test2-4.html';
+		window.location='showIdentity.html';
 
 	 }
 }

@@ -50,7 +50,7 @@ function main() {
     
    console.log(arr);
     btn.onclick = function () {
-        window.location='法官台本.html'
+        window.location='JudgeScript.html'
 
     }
 

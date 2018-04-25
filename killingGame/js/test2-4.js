@@ -74,7 +74,7 @@ var da = num*2-1;
 
  }else{
  	sessionStorage.setItem("ranArr",c);
- 	window.location='test2-5.html';
+ 	window.location='JudgesDiary.html';
  }
 
 }
