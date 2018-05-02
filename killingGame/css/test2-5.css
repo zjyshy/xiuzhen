@@ -1,6 +1,6 @@
 
 html,body{
-	height: 100%;
+	
 	margin:0;
 	padding: 0; 
 	background-color:#29BDE0; 
@@ -24,7 +24,7 @@ header img{
 	height: 70%;
 }
 
-div{
+#diary div{
 	position: relative;
 	width: 150px;
 	height: 150px;
@@ -34,7 +34,7 @@ div{
 
 	
 }
-div>p{
+#diary	 div>p{
 	text-align: center;
 }
 .occ{
@@ -58,7 +58,7 @@ div>p{
 	color:#fff;
 	
 }
-main{
+#diary{
 
 	display: flex;
 	flex-wrap: wrap;
@@ -87,9 +87,33 @@ button{
 
 }
 
+
+#openEyes,#discuss{
+
+	display: none;
+}
+
+.prompt{
+
+	padding-left: 50px;
+	background-color:#C5EBF7; 
+	height: 2.5em;
+	line-height: 2.5em;
+}
+
+.prompt2{
+	font-size: .5em;
+	padding-left: 50px;
+	color: #fff;
+}
+
+#sure{
+
+	display: none;
+}
 @media (max-width: 800px){
 
-	div{
+	#diary div{
 
 		width: 100px;
 		height: 100px;
@@ -98,7 +122,7 @@ button{
 }
 @media (max-width: 440px){
 
-	div{
+	#diary	div{
 		width: 70px;
 		height: 70px;
 		margin: 20px;
