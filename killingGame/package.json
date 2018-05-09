@@ -1,0 +1,16 @@
+{
+  "name": "kill",
+  "version": "1.0.2",
+  "description": "hah",
+  "main": "index.js",
+  "scripts": {
+    "test": "react-scripts test --env=jsdom",
+    "lint": "eslint js --fix",
+    "lint:create": "eslint --init"
+  },
+  "author": "shy",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}

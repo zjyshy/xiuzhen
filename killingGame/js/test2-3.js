@@ -47,19 +47,19 @@ function people(){
 	var $input = document.getElementsByTagName("input")[0];
 	var $value = Number($input.value);
 	
-		if ($value < 4) {
-			confirm('人太少了怎么玩');
+	if ($value < 4) {
+		confirm("人太少了怎么玩");
 
 		
 
 	}
-		else if ( $value>18) {
+	else if ( $value>18) {
 
-		confirm('这么多人可挤不下');
+		confirm("这么多人可挤不下");
 
 	}else if( isNaN($value) )
 	{
-		confirm('不要输入乱七八糟的东西呀');
+		confirm("不要输入乱七八糟的东西呀");
 
 
 	}
@@ -71,7 +71,7 @@ function people(){
 	
 		sessionStorage.setItem("killer",ki.nodeValue);
 		sessionStorage.setItem("human",hu.nodeValue);
-		window.location='showIdentity.html';
+		window.location="showIdentity.html";
 
 	 }
 }

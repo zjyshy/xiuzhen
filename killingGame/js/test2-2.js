@@ -1,4 +1,4 @@
 function jump() {
 	// body...
-window.location='svKillingGame.html'
+	window.location="svKillingGame.html";
 }
