@@ -1,8 +1,5 @@
 (function IIFE(){
 
-
-
-
 	var DN = "display:none;";
 	var DB = "display:block";
 	var arr = sessionStorage.getItem("ranArr").split(",");//将获取到的身份字符串按“，”分割转换成数组
