@@ -1,0 +1,38 @@
+
+.bg{
+
+    background-image: url("../img/gameover.png") ;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 450px;
+}
+li{
+    list-style: none;
+    float: left;
+}
+ul{
+
+    padding: 0;
+}
+.clear{
+
+    clear: both;
+}
+
+.padding{
+    padding-left: 40px;
+    color: white;
+}
+#detail p{
+    padding-left: 40px;
+    color: #c0c0c0;
+   
+
+}
+#detail div{
+    background: #FDFDFD;
+}
+#gameover{
+
+    display: none;
+}

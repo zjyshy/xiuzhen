@@ -24,7 +24,7 @@ header img{
 	height: 70%;
 }
 main{
-	height: 85%;
+	
 	margin-bottom: 2%;
 }
 #diary div{
@@ -78,13 +78,13 @@ main{
 
 
 }
-#play,#sure,#sure2,#back{
+#play,#sure,#sure2,#back,#again{
 	display: block;
 	width: 85%;
 	font-size: 2em;
 	
 	
-	height:10%;
+	
 	min-height: 50px;
 	outline: none;
 	border:none;
@@ -98,7 +98,9 @@ main{
 	margin-left: -42.5%;
 
 }
-
+#gameover{
+	margin-bottom: 10%;
+}
 
 #openEyes,#discuss{
 
@@ -119,15 +121,12 @@ main{
 	color: #fff;
 }
 
-#sure,#sure2,#back{
+#sure,#sure2,#back,#again,#double{
 
 	display: none;
 }
 
-.fly{
-	display: none;
 
-}
 #play{
 	display: block;
 }

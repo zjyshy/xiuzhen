@@ -21,12 +21,17 @@
 	var colorFlag2 = 0;
 	var colorFlag3 = 0;
 	var colorFlag4 = 0;
+	var overFlag="";
+	var flag1 = 0;
+	var flag2 = 0;
+	var CV = [];
 	//用来改变每个页面的标题
 	var pageType = {
-		diarPage:"法官日志",
+		diaryPage:"法官日志",
 		scriptPage:"法官台本",
 		killPage:"杀手杀人",
-		votePage:"投票"
+		votePage:"投票",
+		overPage:"游戏结果"
 
 	};
 
@@ -38,6 +43,7 @@
 	// 用在creatDay函数中
 	var days = ["一","二","三","四","五","六","七","八","九"];//将数字转换成相应的天数的汉字
 	var D = 0;//放入days数组来控制当前的天数
+	var D2 = 0;
 	var content = "" ;//
 
 
@@ -84,13 +90,57 @@
 
 
 
+	function createCV(value){
+		CV[value] = document.createElement("div");
+		if(value==-1){CV[value].innerHTML = " <p>第"+(D2+1)+"天</p><p>晚上: 没有人被杀哦</p><p class='night'>晚上</p> ";
+		}else{
+			CV[value].innerHTML = " <p>第"+(D2+1)+"天</p><p>白天: 被杀的是"+(value+1)+"号，身份是平民</p><p class='night'>晚上</p> ";
+				
+		}
+		CV[value].setAttribute("class","CV");
+		id("detail").appendChild(CV[value]);
 
 
+	}
+
+	function night(value){
+		var nig = document.getElementsByClassName("night");
+		if(arr[value]<hu){
+			nig[D2].innerHTML="白天:投死的是"+(value+1)+"号，身份是平民";
+
+		}else{
+			nig[D2].innerHTML="白天: 投死的是"+(value+1)+"号，身份是杀手";
+		}
+				
+
+	}
+
+	//gameover
 
 
+	function gameover(){
+			
+		if(flag1==ki||flag2==hu){
+			showOver();
+				
+					
 
+		}
+
+	}
+				
+			
+
+
+		
+
+	//end
+
+
+	
 
 	//底部按钮的行为
+	
 	function clickPlay()//点击开始游戏按钮后的动作
 	{
 
@@ -101,7 +151,7 @@
 			showScript();
 			createDay();
 			id("play").style = DN;
-			test();
+			buttonForDay();
        
       
 		};
@@ -114,10 +164,17 @@
 			showDiary();
 			status();
 			id("back").style =DB;
+			page("diaryPage");
 		};
 
 	}
+	function clickGO()//点击结束游戏按钮的动作
+	{
+		id("GO").onclick = function(){
+			showOver();
+		};
 
+	}
 	function clickBack()//点击返回按钮的动作
 	{
 
@@ -126,6 +183,7 @@
 			id("back").style = DN;
     
 			showScript();
+			page("scriptPage");
 		};
 	}
 
@@ -136,19 +194,23 @@
 	{
 
 		id("sure").onclick = function(){
-
+			
 			if(value==-1){
+				overFlag2=0;
 				showScript();
 				id("openEyes").style = DN;
 				id("sure").style = "display:DN";
 				clearKnife();
 				knifeFlag=0;
-				showSpecificK(value);
+				
            
-				test();
+				buttonForDay();
+				page("scriptPage");
+				createCV(value);
 			}else if(arr[value]>=hu){
 				confirm("自己人别开枪");
 			}else if(dead.indexOf(value)==-1){
+				overFlag2=0;
 				showScript();
 				dead+=value;
 				knifeFlag=0;
@@ -156,8 +218,13 @@
 				id("openEyes").style = DN;
 				id("sure").style = "display:DN";
 				showSpecificK(value);
-           
-				test();
+				
+				buttonForDay();
+				
+				page("scriptPage");
+				if(arr[value]>=hu){flag1++;}else {flag2++;}
+				gameover();
+				createCV(value);
 			}else{
 				confirm("他已经是个死人了");
 
@@ -173,18 +240,18 @@
 			if(value==-1){
 				confirm("一定要投一个出来哦");
 			}else if(dead.indexOf(value)==-1){
+				overFlag2=1;
 				showScript();
 				dead+=value;
 				knifeFlag=0;
 				clearKnife();
-				id("openEyes").style = DN;
+				id("discuss").style = DN;
 				id("sure2").style = "display:DN";
            
            
 				D++;
 				createDay();
-				showSpecificK(specificKContent[specificKFlag]-1);//这里-1是因为在showspecificK函数中将此值加一，不减一会导致错误
-				showSpecificV(value);
+				
 				color1();
 				color2();
 				color3();
@@ -194,7 +261,16 @@
 				colorFlag3++;
 				colorFlag4++;
 				flag =1;
-				test();
+				buttonForDay();
+				page("scriptPage");
+				if(arr[value]>=hu)
+				{flag1++;}else
+				 {flag2++;}
+				gameover();
+				night(value);
+				D2++;
+				showSpecificK(specificKContent[specificKFlag]-1);//这里-1是因为在showspecificK函数中将此值加一，不减一会导致错误
+				showSpecificV(value);
 			}else{
 				confirm("他已经是个死人了");
  
@@ -205,7 +281,12 @@
 
 
 	}
+	function again(){
+		id("again").onclick = function(){
+			window.location="svKillingGame.html";
+		};
 
+	}
 
 	//这一部分的结束
 
@@ -222,9 +303,7 @@
 		var inne = "<div class=\"dayHeader\">第"+days[D]+"天</div> <section class=\"block\"><div class=\"a\" ><div class=\"line\"></div><div class=\"kill\"><img class=\"mo\" src=\"img/moon.png\" alt=\"moon\"><span class=\"draw drawK\"></span><span class=\"killing line1\">杀手杀人</span><p class=\"specificK\"></p></div><div class=\"undead\"> <img class=\"mo\" src=\"img/sun.png\" alt=\"sun\"><span class=\"draw drawG\"></span><span class=\"ghost line1\">亡灵发表遗言</span></div><div class=\"speak\"> <span class=\"draw drawT\"></span><span class=\"line2 talk\">玩家依次发言</span></div><div class=\"vote\"> <span class=\"draw drawV\"></span><span class=\" line2 toupiao\">全民投票</span><p class=\"specificV\"></p></div></div> </section> ";
 		content+=inne;
 		ma[1].innerHTML = content;
-   
-		clickDay();
-   
+   		clickDay();
 	}
 
 
@@ -243,7 +322,7 @@
    
 		ma[0].style = DN;
 		ma[1].style = DB;
-		body[0].style = "background-color:#eee;";
+		body[0].style = "background:#eee;";
 		id("double").style = DB;
     
    
@@ -254,10 +333,22 @@
 
 		ma[0].style = "display:flex;";
 		ma[1].style = DN;
-		body[0].style = "background-color:#29BDE0;";
+		body[0].style = "background:#29BDE0;";
 		id("double").style = DN;
 	}
 
+	function showOver(){
+		ma[1].style = DN;
+		ma[0].style = DN;
+		ma[2].style=DB;
+		body[0].style = "background:#29BDE0;";
+		id("double").style = DN;
+		id("again").style = DB;
+		id("kinu").childNodes[0].nodeValue =(ki-flag1);
+		id("hunu").childNodes[0].nodeValue = (hu-flag2);
+				
+	
+	}
 	//这一块的结束
 
 
@@ -320,7 +411,7 @@
 
 	//天块中的各个按钮的动作
 
-	function test(){
+	function buttonForDay(){
 		var killing = document.getElementsByClassName("killing");
 		var ghost = document.getElementsByClassName("ghost"); 
 		var talk = document.getElementsByClassName("talk"); 
@@ -350,6 +441,7 @@
 						color1();
 						status();
 						specificKFlag++;
+						page("killPage");
 					}else{
 						confirm("请进行下个步骤");
 					}
@@ -416,7 +508,7 @@
 						flag = 0;
 						color4(); 
 						specificVFlag++;
-
+						id("discuss").style = DB;
 					}else if (flag==0){
                     
 						confirm("请进行下各步骤");
@@ -444,18 +536,17 @@
 
 	function showSpecificK(ST){
 		specificKContent[specificKFlag]=ST+1;
-   
-
-    
+		
+		
 		for (let n = 0; n<=specificKFlag;n++){
 			if(specificKContent[n]==0){
-            
+				
 				specificK[n].innerHTML="这么猖狂吗";
 
 
 			}else{
-
-				specificK[n].innerHTML="被杀死的是"+specificKContent[n]+"号";
+				
+				specificK[n].innerHTML="被杀死的是"+specificKContent[n]+"号，他的身份是平民";
 
 			}
 		}
@@ -472,8 +563,8 @@
 		specificVContent[specificVFlag]=SV+1;
     
 		for(let m =0;m<=specificVFlag;m++){
-        
-			specificV[m].innerHTML="投死的是"+specificVContent[m]+"号";
+			var rank = arr[SV]<hu ? "平民":"杀手";
+			specificV[m].innerHTML="投死的是"+specificVContent[m]+"号,身份是"+rank+"";
 		}
 
 	}
@@ -586,18 +677,16 @@
 
 	//判断胜负
 
-	function victory(){
-
-    
-	}
 
 
 	function main() {
-    
+		
 		createBlock(arr); 
 		clickPlay();
 		clickJD();
 		clickBack();
+		clickGO();
+		again();
 
 	}
 

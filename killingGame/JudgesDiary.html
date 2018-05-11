@@ -4,14 +4,16 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/test2-5.css">
 	<link rel="stylesheet" href="css/法官台本.css">
+	<link rel="stylesheet" href="css/gameover.css">
+	
 	<script type="text/javascript" src = "js/game.js"></script>
 	<title>杀人游戏</title>
 </head>
 <body>
 	<header>
-	<img src="img/left.png" alt="left" class="left" >
+	<img src="img/left.png" alt="left" id="goBack" >
 	<span id="pageType">法官日志</span>
-	<img src="img/X.png" alt="X" class="X">
+	<img src="img/X.png" alt="X" id="X">
 	</header>
 	<section id="openEyes">
 		<div class="prompt">杀手请睁眼，杀手请选择要杀的对象</div>
@@ -23,7 +25,7 @@
 		<p class="prompt2">选择</p>
 	</section>
 	
-	<main id="diary">
+	<main  id="diary">
 		
 		
 
@@ -33,10 +35,31 @@
 
 	<main></main>
 
+	<main id="gameover">
+		<div class="bg"></div>
+		<p class="padding">剩余玩家</p>
+		<ul>
+			<li class="padding">杀手<span id="kinu"> </span>人</li>
+			<li class="padding">平民<span id="hunu"> </span>人</li>
+			<div class="clear"></div>
+		</ul>
+		<section id="detail">
+			<!--
+
+		
+			<div>
+				<p>第1天</p>
+				<p>黑夜:1号被杀死了，真实身份是平民</p>
+				<p>白天:2号被杀死了，真实身份是杀手</p>
+			</div>
+				-->
+		</section>
+	</main>
 	<button class="fly" id="play">开始游戏</button>
 	<button class="fly" id="sure">确定</button>
 	<button class="fly" id="sure2">确定</button>
 	<button class="fly" id="back">返回</button>
+	<button class="fly" id="again">再来一次</button>
 	<div class="fly two" id="double"><button id="GO">结束游戏</button><button id="JD">法官日志</button></div>
 
 </body>
